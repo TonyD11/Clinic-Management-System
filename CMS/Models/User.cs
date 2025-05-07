@@ -13,11 +13,11 @@ namespace CMS.Models
         private string password;
         private string type;
 
-        protected User(string name, string password, string type)
+        protected User(string name, string password)
         {
             Name = name;
             Password = password;
-            Type = type;
+            
         }
 
         public int Id { get { return id; } }
