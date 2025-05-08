@@ -101,6 +101,7 @@
     <Compile Include="ConnectionString.cs" />
     <Compile Include="Controller\AuthController.cs" />
     <Compile Include="Controller\PatientController.cs" />
+    <Compile Include="Models\Doctor.cs" />
     <Compile Include="Models\Patient.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Views\Form1.cs">
