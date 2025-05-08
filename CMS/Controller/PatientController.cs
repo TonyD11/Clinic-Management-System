@@ -15,7 +15,7 @@ namespace CMS.Controller
         public void AddPaitent(Patient patient)
         {
              if (patient != null)
-            {
+             {
                 try
                 {
                     MySqlConnection connection = new MySqlConnection(connectionString.db);
@@ -40,11 +40,11 @@ namespace CMS.Controller
                 catch (Exception ex) {
                     MessageBox.Show("Registartion Failed.");
                 }
-            }
-            else
-            {
+             }
+             else
+             {
                 MessageBox.Show("Please Enter All Details");
-            }
+             }
         }
     }
 }

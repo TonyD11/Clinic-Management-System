@@ -35,9 +35,29 @@ namespace CMS.Controller
                     {
                         string type = reader["type"].ToString();
 
-                        connection.Close();
+                        bool availability = Convert.ToBoolean(reader["availability"]);
 
-                        return type;
+                        if (availability)
+                        {
+                            Sessions.Id = Convert.ToInt32(reader["id"]);
+                            Sessions.Age = Convert.ToInt32(reader["age"]);
+                            Sessions.Availability = Convert.ToBoolean(reader["availability"]);
+                            Sessions.Name = Convert.ToString(reader["name"]);
+                            Sessions.Gender = Convert.ToString(reader["gender"]);
+                            Sessions.Contact = Convert.ToString(reader["contact"]);
+                            Sessions.Password = Convert.ToString(reader["password"]);
+                            Sessions.Type = type;
+
+
+                            connection.Close();
+                            return type;
+                        }
+                        else
+                        {
+                            MessageBox.Show("User is not available or has been deactivated.");
+                            connection.Close();
+                            return "not_available";
+                        }
                     }
                     else
                     {
@@ -56,6 +76,18 @@ namespace CMS.Controller
 
 
             return null;
+        }
+
+        public static class Sessions
+        {
+            public static int Id { get; set; }
+            public static string Name { get; set; }
+            public static string Password { get; set; }
+            public static string Contact { get; set; }
+            public static string Gender { get; set; }
+            public static string Type { get; set; }
+            public static int Age { get; set; }
+            public static bool Availability { get; set; }
         }
     }
 }

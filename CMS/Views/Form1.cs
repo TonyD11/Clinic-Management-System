@@ -31,6 +31,8 @@ namespace CMS
             if (type == "patient")
             {
                 MessageBox.Show($"Welcome {name}");
+                this.Hide();
+                new PatientDashboard().Show();
             }
 
         }
