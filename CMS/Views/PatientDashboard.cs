@@ -37,7 +37,7 @@ namespace CMS.Views
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            showForm(new PatientProfile());
         }
     }
 }
