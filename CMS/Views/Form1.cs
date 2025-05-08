@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CMS.Views;
 using MySql.Data.MySqlClient;
 
 namespace CMS
@@ -21,6 +22,12 @@ namespace CMS
         private void button1_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+            new Signup().Show();
         }
     }
 }
