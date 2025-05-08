@@ -14,7 +14,7 @@ namespace CMS.Controller
         ConnectionString connectionString = new ConnectionString();
         public void AddPaitent(Patient patient)
         {
-            if (patient != null)
+             if (patient != null)
             {
                 try
                 {

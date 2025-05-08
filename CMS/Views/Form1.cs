@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CMS.Controller;
 using CMS.Views;
 using MySql.Data.MySqlClient;
 
@@ -21,7 +22,17 @@ namespace CMS
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            string name = textBox1.Text;
+            string password = textBox2.Text;
+
+            AuthController authController = new AuthController();
+            string type = authController.Login(name, password);
+
+            if (type == "patient")
+            {
+                MessageBox.Show($"Welcome {name}");
+            }
+
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

@@ -17,7 +17,7 @@ namespace CMS.Models
             this.age = age;
             this.gender = gender;
             this.contact = contact;
-            Type = "Patient";
+            Type = "patient";
         }
 
         public int Age {  get { return age; } set { age = value; } }
