@@ -9,7 +9,8 @@ CREATE TABLE users (
     age INT,
     gender ENUM('Male', 'Female', 'Other'),
     contact VARCHAR(15),
-    type ENUM('doctor', 'patient', 'admin') NOT NULL
+    type ENUM('doctor', 'patient', 'admin') NOT NULL,
+    availability` tinyint(1) NOT NULL DEFAULT 1
 );
 
 
