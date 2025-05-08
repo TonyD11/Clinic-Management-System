@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CMS.Controller;
+using static CMS.Controller.AuthController;
 
 namespace CMS.Views
 {
@@ -39,5 +41,7 @@ namespace CMS.Views
         {
             showForm(new PatientProfile());
         }
+
+        
     }
 }
