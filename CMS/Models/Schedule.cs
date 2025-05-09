@@ -17,9 +17,9 @@ namespace CMS.Models
         private Time _endtime;
         private int _count;
 
-        public Schedule(string id, Doctor doctor, string dayOfWeek, Time starttime, Time endtime, int count)
+        public Schedule(Doctor doctor, string dayOfWeek, Time starttime, Time endtime, int count)
         {
-            Id = id;
+            Id = _id;
             Doctor = doctor;
             DayOfWeek = dayOfWeek;
             Starttime = starttime;

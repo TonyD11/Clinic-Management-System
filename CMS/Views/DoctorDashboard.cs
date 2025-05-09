@@ -30,5 +30,10 @@ namespace CMS.Views
             this.panel2.Tag = frm;
             frm.Show();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            showForm(new TimeScheduler());
+        }
     }
 }
