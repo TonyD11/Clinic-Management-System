@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -145,6 +146,28 @@ namespace CMS.Controller
             {
                 MessageBox.Show("Error: Unable to fetch available patients.\n" + ex.Message);
                 return -1;
+            }
+        }
+
+        public DataTable GetAllAppointmentsOfPatient(int userid)
+        {
+            try
+            {
+                MySqlConnection connection = new MySqlConnection(connectionString.db);
+                connection.Open();
+                string query = "SELECT appointment.id, users.name, doctor_schedule.day_of_week , doctor_schedule.start_time, doctor_schedule.end_time, appointment.status FROM appointment INNER JOIN doctor_schedule ON appointment.schedule_id = doctor_schedule.id INNER JOIN users ON appointment.doctor_id = users.id WHERE appointment.patient_id = @userid";
+                MySqlCommand command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@userid", userid);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                DataTable appointmentTable = new DataTable();
+                adapter.Fill(appointmentTable);
+                connection.Close();
+                return appointmentTable;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: Unable to fetch appointments.\n" + ex.Message);
+                return null;
             }
         }
 
