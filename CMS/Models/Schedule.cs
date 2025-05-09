@@ -10,7 +10,7 @@ namespace CMS.Models
 {
     internal class Schedule
     {
-        private string _id;
+        private int _id;
         private Doctor _doctor;
         private string _dayofweek;
         private string _starttime;
@@ -27,7 +27,7 @@ namespace CMS.Models
             _count = count;
         }
 
-        public string Id { get { return _id; } set { _id = value; } }
+        public int Id { get { return _id; } set { _id = value; } }
         public Doctor Doctor { get { return _doctor; } set { _doctor = value; } }
         public string DayOfWeek { get { return _dayofweek; } set { _dayofweek = value; } }
         public string Starttime { get { return _starttime; } set { _starttime = value; } }

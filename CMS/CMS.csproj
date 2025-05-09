@@ -99,6 +99,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConnectionString.cs" />
+    <Compile Include="Controller\AppoitmentController.cs" />
     <Compile Include="Controller\AuthController.cs" />
     <Compile Include="Controller\DoctorController.cs" />
     <Compile Include="Controller\PatientController.cs" />
@@ -107,6 +108,7 @@
     <Compile Include="Models\Patient.cs" />
     <Compile Include="Models\Schedule.cs" />
     <Compile Include="Models\Speciality.cs" />
+    <Compile Include="Models\TimeSlots.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Views\AddSpeciality.cs">
       <SubType>Form</SubType>
@@ -120,11 +122,23 @@
     <Compile Include="Views\AdminDashboard.Designer.cs">
       <DependentUpon>AdminDashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\CreateAppointment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\CreateAppointment.Designer.cs">
+      <DependentUpon>CreateAppointment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\CreateDoctors.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\CreateDoctors.Designer.cs">
       <DependentUpon>CreateDoctors.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DoctorAppoinments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\DoctorAppoinments.Designer.cs">
+      <DependentUpon>DoctorAppoinments.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\DoctorDashboard.cs">
       <SubType>Form</SubType>
@@ -140,6 +154,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\MyAppointments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\MyAppointments.Designer.cs">
+      <DependentUpon>MyAppointments.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\PatientDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -170,8 +190,14 @@
     <EmbeddedResource Include="Views\AdminDashboard.resx">
       <DependentUpon>AdminDashboard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\CreateAppointment.resx">
+      <DependentUpon>CreateAppointment.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\CreateDoctors.resx">
       <DependentUpon>CreateDoctors.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\DoctorAppoinments.resx">
+      <DependentUpon>DoctorAppoinments.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\DoctorDashboard.resx">
       <DependentUpon>DoctorDashboard.cs</DependentUpon>
@@ -188,6 +214,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\MyAppointments.resx">
+      <DependentUpon>MyAppointments.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\PatientDashboard.resx">
       <DependentUpon>PatientDashboard.cs</DependentUpon>
     </EmbeddedResource>

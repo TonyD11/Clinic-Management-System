@@ -42,6 +42,14 @@ namespace CMS.Views
             showForm(new PatientProfile());
         }
 
-        
+        private void button2_Click(object sender, EventArgs e)
+        {
+            showForm(new CreateAppointment());
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            showForm(new MyAppointments());
+        }
     }
 }

@@ -111,5 +111,19 @@ namespace CMS.Controller
                 MessageBox.Show("Deactivation Failed");
             }
         }
+
+        public Patient SessionPatientDetails()
+        {
+            Patient patient = new Patient(null, null,0,null,null);
+
+            patient.Id = Sessions.Id;
+            patient.Name = Sessions.Name;
+            patient.Password = Sessions.Password;
+            patient.Age = Sessions.Age;
+            patient.Gender = Sessions.Gender;
+            patient.Contact = Sessions.Contact;
+            patient.Type = Sessions.Type;
+            return patient;
+        }
     }
 }

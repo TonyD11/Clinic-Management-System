@@ -18,9 +18,10 @@ namespace CMS.Views
         {
             InitializeComponent();
         }
-        DataTable dt = new DoctorController().GetAllDoctors();
+        
         private void AddSpeciality_Load(object sender, EventArgs e)
         {
+            DataTable dt = new DoctorController().GetAllDoctors();
             comboBox1.DataSource = dt;
             comboBox1.DisplayMember = "name";  // what user sees
             comboBox1.ValueMember = "id";      // what you use internally
