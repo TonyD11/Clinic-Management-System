@@ -131,5 +131,33 @@ namespace CMS.Controller
                 MessageBox.Show("Unable to add Specialist");
             }
         }
+
+        public void AddTimeSchedule(Schedule schedule) 
+        {
+            try
+            {
+                MySqlConnection connection = new MySqlConnection(connectionString.db);
+                connection.Open();
+
+                string query = "Insert Into doctor_schedule (doctor_id , day_of_week,start_time,end_time,no_of_patient) values (@doctor_id , @day_of_week, @start_time, @end_time, @no_of_patient)";
+                MySqlCommand command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@doctor_id", schedule.Doctor.Id);
+                command.Parameters.AddWithValue("@day_of_week", schedule.DayOfWeek.ToString());
+                command.Parameters.AddWithValue("@start_time", schedule.Starttime);
+                command.Parameters.AddWithValue("@end_time", schedule.Endtime);
+                command.Parameters.AddWithValue("@no_of_patient", schedule.Count);
+
+                command.ExecuteNonQuery();
+
+                connection.Close();
+
+                MessageBox.Show("Appoitment Approval Time Added");
+
+            }
+            catch (Exception ex) 
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

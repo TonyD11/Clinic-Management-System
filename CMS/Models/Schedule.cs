@@ -13,11 +13,11 @@ namespace CMS.Models
         private string _id;
         private Doctor _doctor;
         private string _dayofweek;
-        private Time _starttime;
-        private Time _endtime;
+        private string _starttime;
+        private string _endtime;
         private int _count;
 
-        public Schedule(Doctor doctor, string dayOfWeek, Time starttime, Time endtime, int count)
+        public Schedule(Doctor doctor, string dayOfWeek, string starttime, string endtime, int count)
         {
             Id = _id;
             Doctor = doctor;
@@ -30,8 +30,8 @@ namespace CMS.Models
         public string Id { get { return _id; } set { _id = value; } }
         public Doctor Doctor { get { return _doctor; } set { _doctor = value; } }
         public string DayOfWeek { get { return _dayofweek; } set { _dayofweek = value; } }
-        public Time Starttime { get { return _starttime; } set { _starttime = value; } }
-        public Time Endtime { get { return _endtime; } set { _endtime = value; } }
+        public string Starttime { get { return _starttime; } set { _starttime = value; } }
+        public string Endtime { get { return _endtime; } set { _endtime = value; } }
         public int Count { get { return _count;  }  set { _count = value; } }
 
 
