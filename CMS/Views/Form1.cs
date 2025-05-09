@@ -33,6 +33,10 @@ namespace CMS
                 MessageBox.Show($"Welcome {name}");
                 this.Hide();
                 new PatientDashboard().Show();
+            }else if (type == "admin")
+            {
+                this.Hide();
+                new AdminDashboard().Show();
             }
 
         }

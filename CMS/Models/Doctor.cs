@@ -15,6 +15,7 @@ namespace CMS.Models
 
         public Doctor(string name, string password, int age, string gender, string contact) : base(name, password)
         {
+            
             this.age = age;
             this.gender = gender;
             this.contact = contact;

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using CMS.Models;
 using MySql.Data.MySqlClient;
 using System.Windows.Forms;
+using System.Data;
 
 namespace CMS.Controller
 {
@@ -45,6 +46,89 @@ namespace CMS.Controller
             else
             {
                 MessageBox.Show("Please Enter All Details");
+            }
+        }
+
+        public DataTable GetAllDoctors() {
+
+            try
+            {
+                MySqlConnection connection = new MySqlConnection(connectionString.db);
+                connection.Open();
+
+                string query = "Select * from users where type = 'doctor'";
+                MySqlCommand command = new MySqlCommand( query, connection);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+
+                DataTable doctorTable = new DataTable();
+                adapter.Fill(doctorTable);
+
+                connection.Close();
+
+                return doctorTable;
+            }
+            catch
+            {
+                MessageBox.Show("Could not find doctor details!");
+                return null;
+            }
+        }
+
+        public Doctor GetDoctorById(int Id)
+        {
+
+            try
+            {
+                MySqlConnection connection = new MySqlConnection(connectionString.db);
+                connection.Open();
+
+                string query = $"Select * from users where id = {Id}";
+                MySqlCommand command = new MySqlCommand(query, connection);
+                MySqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read()) {
+                    string name = reader.GetString(1);
+                    string password = reader.GetString(2);
+                    int age = reader.GetInt32(3);
+                    string gender = reader.GetString(4);
+                    string contact = reader.GetString(5);
+
+                    connection.Close();
+
+                    Doctor doctor = new Doctor(name, password, age, gender, contact);
+
+                    return doctor;
+                }
+
+                return null;
+            }
+            catch
+            {
+                MessageBox.Show("Could not find doctor details!");
+                return null;
+            }
+        }
+
+        public void AddSpecialist(Doctor doctor, string name)
+        {
+            try
+            {
+                MySqlConnection connection = new MySqlConnection (connectionString.db);
+                connection.Open();
+
+                string query = "INSERT INTO doctor_specialties (user_id, specialty) VALUES (@user_id, @specialty)";
+                MySqlCommand command = new MySqlCommand( query, connection);
+                command.Parameters.AddWithValue("@user_id", doctor.Id);
+                command.Parameters.AddWithValue("@specialty", name);
+                command.ExecuteNonQuery();
+
+                connection.Close();
+
+                MessageBox.Show("Specialist Added Succefully");
+            }
+            catch
+            {
+                MessageBox.Show("Unable to add Specialist");
             }
         }
     }

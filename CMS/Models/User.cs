@@ -17,10 +17,10 @@ namespace CMS.Models
         {
             Name = name;
             Password = password;
-            
+            Id = id;
         }
 
-        public int Id { get { return id; } }
+        public int Id { get { return id; } set { id = value; } }
 
         public string Name { get { return name; } set { name = value; } }
         public string Password { get { return password; } set { password = value; } }
