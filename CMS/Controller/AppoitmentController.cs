@@ -12,6 +12,74 @@ namespace CMS.Controller
     internal class AppoitmentController
     {
         ConnectionString connectionString = new ConnectionString();
+
+        public void AddAppointment(Appoitments appointment)
+        {
+            if (appointment != null)
+            {
+                try
+                {
+                    MySqlConnection connection = new MySqlConnection(connectionString.db);
+                    connection.Open();
+
+                    string query = "INSERT INTO appointment (patient_id, doctor_id, schedule_id) VALUES(@patientId, @doctorId, @scheduleId)";
+                    MySqlCommand command = new MySqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@patientId", appointment.Patient.Id);
+                    command.Parameters.AddWithValue("@doctorId", appointment.Doctor.Id);
+                    command.Parameters.AddWithValue("@scheduleId", appointment.Schedule.Id);
+                    command.ExecuteNonQuery();
+
+                    string updateQuery = "UPDATE doctor_schedule SET no_of_patient = no_of_patient - 1 WHERE id = @scheduleId";
+                    MySqlCommand updateCommand = new MySqlCommand(updateQuery, connection);
+                    updateCommand.Parameters.AddWithValue("@scheduleId", appointment.Schedule.Id);
+                    updateCommand.ExecuteNonQuery();
+
+                    connection.Close();
+                    MessageBox.Show("Appointment Created");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: Unable to create appointment.\n" + ex.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please Enter All Details");
+            }
+        }
+
+        public Schedule GetScheduleById(int id)
+        {
+            try
+            {
+                MySqlConnection connection = new MySqlConnection(connectionString.db);
+                connection.Open();
+                string query = $"SELECT * FROM doctor_schedule WHERE id = {id}";
+                MySqlCommand command = new MySqlCommand(query, connection);
+                MySqlDataReader reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+                    string startTime = reader["start_time"].ToString();
+                    string endTime = reader["end_time"].ToString();
+                    string dayOfWeek = reader["day_of_week"].ToString();
+                    int noOfPatient = Convert.ToInt32(reader["no_of_patient"]);
+
+                    Doctor doctor = new DoctorController().GetDoctorById(Convert.ToInt32(reader["doctor_id"]));
+
+
+                    Schedule schedule = new Schedule(doctor,startTime, endTime, dayOfWeek, noOfPatient);
+                    schedule.Id = id;
+                    connection.Close();
+                    return schedule;
+                }
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: Unable to fetch schedule.\n" + ex.Message);
+            }
+            return null;
+        }
         public TimeSlots GetDoctorTimeSlots(int doctorId, string day)
         {
             try

@@ -72,5 +72,22 @@ namespace CMS.Views
             }
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+      
+            Patient patient = new PatientController().SessionPatientDetails();
+
+            Doctor doctor = new DoctorController().GetDoctorById((int)comboBox1.SelectedValue);
+            doctor.Id = (int)comboBox1.SelectedValue;
+
+            Schedule schedule = new AppoitmentController().GetScheduleById((int)comboBox3.SelectedValue);
+
+            Appoitments appointment = new Appoitments(patient, doctor, schedule);
+
+            AppoitmentController appoitmentController = new AppoitmentController();
+            appoitmentController.AddAppointment(appointment);
+
+            this.Hide();
+        }
     }
 }

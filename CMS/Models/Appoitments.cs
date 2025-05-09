@@ -14,9 +14,8 @@ namespace CMS.Models
         private Schedule _schedule;
         private string _status;
 
-        public Appoitments(int id, Patient patient, Doctor doctor, Schedule schedule)
+        public Appoitments(Patient patient, Doctor doctor, Schedule schedule)
         {
-            Id = id;
             Patient = patient;
             Doctor = doctor;
             Schedule = schedule;
