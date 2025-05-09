@@ -30,8 +30,17 @@ CREATE TABLE doctor_schedule (
     FOREIGN KEY (doctor_id) REFERENCES users(id)
 );
 
-
-
+CREATE TABLE appointment (
+    id INT AUTO_INCREMENT PRIMARY KEY, 
+    patient_id INT NOT NULL, 
+    doctor_id INT NOT NULL, 
+    schedule_id INT NOT NULL, 
+    appointment_date DATETIME DEFAULT CURRENT_TIMESTAMP, 
+    status VARCHAR(20) NOT NULL DEFAULT 'upcoming', 
+    FOREIGN KEY (patient_id) REFERENCES users(id), 
+    FOREIGN KEY (doctor_id) REFERENCES users(id), 
+    FOREIGN KEY (schedule_id) REFERENCES doctor_schedule(id) 
+);
 
 INSERT INTO users (name, password, age, gender, contact, type)
 VALUES ('Admin Name', 'admin123', 30, 'Male', '1234567890', 'admin');
