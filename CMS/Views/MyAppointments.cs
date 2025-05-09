@@ -38,5 +38,24 @@ namespace CMS.Views
                 MessageBox.Show("No Appointments Found");
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                int appointmentId = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
+                string status = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
+                if (status == "upcoming")
+                {
+                    new AppoitmentController().UpdateAppointmentStatus(appointmentId);
+                }
+                MyAppointments_Load(sender, e);
+            }
+            else
+            {
+                MessageBox.Show("Please select an appointment to update.");
+            }
+        }
     }
 }

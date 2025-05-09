@@ -171,6 +171,25 @@ namespace CMS.Controller
             }
         }
 
+        public void UpdateAppointmentStatus(int appointmentId)
+        {
+            try
+            {
+                MySqlConnection connection = new MySqlConnection(connectionString.db);
+                connection.Open();
+                string query = "UPDATE appointment SET status = 'Cancelled' WHERE id = @appointmentId";
+                MySqlCommand command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@appointmentId", appointmentId);
+                command.ExecuteNonQuery();
+                connection.Close();
+                MessageBox.Show("Appointment has been cancelled.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: Unable to update appointment status.\n" + ex.Message);
+            }
+        }
+
 
 
     }
