@@ -20,6 +20,16 @@ CREATE TABLE doctor_specialties (
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
+CREATE TABLE doctor_schedule (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    doctor_id INT,
+    day_of_week VARCHAR(10),   -- e.g., 'Monday'
+    start_time TIME,
+    end_time TIME,
+    FOREIGN KEY (doctor_id) REFERENCES users(id)
+);
+
+
 
 
 INSERT INTO users (name, password, age, gender, contact, type)
