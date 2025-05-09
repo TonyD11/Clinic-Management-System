@@ -28,11 +28,35 @@ namespace CMS.Views
             if (dt != null)
             {
                 dataGridView1.DataSource = dt;
+                dataGridView1.Columns[0].HeaderText = "Appointment ID";
+                dataGridView1.Columns[1].HeaderText = "Patient Name";
+                dataGridView1.Columns[2].HeaderText = "Day Of Week";
+                dataGridView1.Columns[3].HeaderText = "Status";
+
                 
+
             }
             else
             {
                 MessageBox.Show("No Appointments Found");
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                int appointmentId = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
+                string status = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
+                if (status == "upcoming")
+                {
+                    new AppoitmentController().CompleteAppointment(appointmentId);
+                }
+                DoctorAppoinments_Load(sender, e);
+            }
+            else
+            {
+                MessageBox.Show("Please select an appointment to update.");
             }
         }
     }

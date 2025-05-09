@@ -171,7 +171,46 @@ namespace CMS.Controller
             }
         }
 
-        
+        public DataTable GetAppointmentsOfDoctor(int doctorId)
+        {
+            try
+            {
+                MySqlConnection connection = new MySqlConnection(connectionString.db);
+                connection.Open();
+                string query = "SELECT appointment.id, users.name, doctor_schedule.day_of_week , appointment.status FROM appointment INNER JOIN doctor_schedule ON appointment.schedule_id = doctor_schedule.id INNER JOIN users ON appointment.patient_id = users.id WHERE appointment.doctor_id = @doctorId AND appointment.status = 'upcoming'";
+                MySqlCommand command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@doctorId", doctorId);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                DataTable appointmentTable = new DataTable();
+                adapter.Fill(appointmentTable);
+                connection.Close();
+                return appointmentTable;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: Unable to fetch appointments.\n" + ex.Message);
+                return null;
+            }
+        }
+
+        public void CompleteAppointment(int appointmentId)
+        {
+            try
+            {
+                MySqlConnection connection = new MySqlConnection(connectionString.db);
+                connection.Open();
+                string query = "UPDATE appointment SET status = 'Completed' WHERE id = @appointmentId";
+                MySqlCommand command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@appointmentId", appointmentId);
+                command.ExecuteNonQuery();
+                connection.Close();
+                MessageBox.Show("Appointment has been completed.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: Unable to update appointment status.\n" + ex.Message);
+            }
+        }
 
         public void UpdateAppointmentStatus(int appointmentId)
         {
@@ -183,6 +222,12 @@ namespace CMS.Controller
                 MySqlCommand command = new MySqlCommand(query, connection);
                 command.Parameters.AddWithValue("@appointmentId", appointmentId);
                 command.ExecuteNonQuery();
+
+                // Update the number of patients in the schedule
+                string updateQuery = "UPDATE doctor_schedule SET no_of_patient = no_of_patient + 1 WHERE id = (SELECT schedule_id FROM appointment WHERE id = @appointmentId)";
+                MySqlCommand updateCommand = new MySqlCommand(updateQuery, connection);
+                updateCommand.Parameters.AddWithValue("@appointmentId", appointmentId);
+                updateCommand.ExecuteNonQuery();
                 connection.Close();
                 MessageBox.Show("Appointment has been cancelled.");
             }
