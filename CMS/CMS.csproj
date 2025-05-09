@@ -100,9 +100,37 @@
   <ItemGroup>
     <Compile Include="ConnectionString.cs" />
     <Compile Include="Controller\AuthController.cs" />
+    <Compile Include="Controller\DoctorController.cs" />
     <Compile Include="Controller\PatientController.cs" />
+    <Compile Include="Models\Doctor.cs" />
     <Compile Include="Models\Patient.cs" />
+    <Compile Include="Models\Schedule.cs" />
+    <Compile Include="Models\Speciality.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Views\AddSpeciality.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AddSpeciality.Designer.cs">
+      <DependentUpon>AddSpeciality.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AdminDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AdminDashboard.Designer.cs">
+      <DependentUpon>AdminDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CreateDoctors.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\CreateDoctors.Designer.cs">
+      <DependentUpon>CreateDoctors.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DoctorDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\DoctorDashboard.Designer.cs">
+      <DependentUpon>DoctorDashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,6 +157,24 @@
     <Compile Include="Views\Signup.Designer.cs">
       <DependentUpon>Signup.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\TimeScheduler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\TimeScheduler.Designer.cs">
+      <DependentUpon>TimeScheduler.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Views\AddSpeciality.resx">
+      <DependentUpon>AddSpeciality.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\AdminDashboard.resx">
+      <DependentUpon>AdminDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CreateDoctors.resx">
+      <DependentUpon>CreateDoctors.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\DoctorDashboard.resx">
+      <DependentUpon>DoctorDashboard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -149,6 +195,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Signup.resx">
       <DependentUpon>Signup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\TimeScheduler.resx">
+      <DependentUpon>TimeScheduler.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
