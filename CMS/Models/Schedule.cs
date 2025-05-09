@@ -15,14 +15,16 @@ namespace CMS.Models
         private string _dayofweek;
         private Time _starttime;
         private Time _endtime;
+        private int _count;
 
-        public Schedule(string id, Doctor doctor, string dayOfWeek, Time starttime, Time endtime)
+        public Schedule(string id, Doctor doctor, string dayOfWeek, Time starttime, Time endtime, int count)
         {
             Id = id;
             Doctor = doctor;
             DayOfWeek = dayOfWeek;
             Starttime = starttime;
             Endtime = endtime;
+            _count = count;
         }
 
         public string Id { get { return _id; } set { _id = value; } }
@@ -30,6 +32,7 @@ namespace CMS.Models
         public string DayOfWeek { get { return _dayofweek; } set { _dayofweek = value; } }
         public Time Starttime { get { return _starttime; } set { _starttime = value; } }
         public Time Endtime { get { return _endtime; } set { _endtime = value; } }
+        public int Count { get { return _count;  }  set { _count = value; } }
 
 
     }
