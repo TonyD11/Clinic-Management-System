@@ -34,5 +34,10 @@ namespace CMS.Views
         {
             showForm(new CreateDoctors());
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            showForm(new AddSpeciality());
+        }
     }
 }

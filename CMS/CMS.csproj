@@ -106,6 +106,12 @@
     <Compile Include="Models\Patient.cs" />
     <Compile Include="Models\Speciality.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Views\AddSpeciality.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AddSpeciality.Designer.cs">
+      <DependentUpon>AddSpeciality.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\AdminDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,6 +150,9 @@
     <Compile Include="Views\Signup.Designer.cs">
       <DependentUpon>Signup.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\AddSpeciality.resx">
+      <DependentUpon>AddSpeciality.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\AdminDashboard.resx">
       <DependentUpon>AdminDashboard.cs</DependentUpon>
     </EmbeddedResource>
