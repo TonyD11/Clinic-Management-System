@@ -26,6 +26,7 @@ CREATE TABLE doctor_schedule (
     day_of_week VARCHAR(10),   -- e.g., 'Monday'
     start_time TIME,
     end_time TIME,
+    no_of_patient INT,
     FOREIGN KEY (doctor_id) REFERENCES users(id)
 );
 
