@@ -171,6 +171,8 @@ namespace CMS.Controller
             }
         }
 
+        
+
         public void UpdateAppointmentStatus(int appointmentId)
         {
             try

@@ -134,6 +134,12 @@
     <Compile Include="Views\CreateDoctors.Designer.cs">
       <DependentUpon>CreateDoctors.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\DoctorAppoinments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\DoctorAppoinments.Designer.cs">
+      <DependentUpon>DoctorAppoinments.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\DoctorDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -189,6 +195,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\CreateDoctors.resx">
       <DependentUpon>CreateDoctors.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\DoctorAppoinments.resx">
+      <DependentUpon>DoctorAppoinments.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\DoctorDashboard.resx">
       <DependentUpon>DoctorDashboard.cs</DependentUpon>
