@@ -14,9 +14,12 @@ namespace CMS.Views
 {
     public partial class AppointmentSelection : Form
     {
-        public AppointmentSelection()
+        private DoctorDashboard dashboard;
+
+        public AppointmentSelection(DoctorDashboard parentDashboard)
         {
             InitializeComponent();
+            dashboard = parentDashboard;
         }
 
         private void AppointmentSelection_Load(object sender, EventArgs e)
@@ -47,8 +50,7 @@ namespace CMS.Views
             if (dataGridView1.SelectedRows.Count > 0)
             {
                 int appointmentId = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
-                this.Hide();
-                new CreatePrescription(appointmentId).Show();
+                dashboard.showCreatePrescription(appointmentId); // Use the reference
             }
         }
     }

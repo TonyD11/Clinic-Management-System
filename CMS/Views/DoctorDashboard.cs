@@ -43,7 +43,17 @@ namespace CMS.Views
 
         private void button3_Click(object sender, EventArgs e)
         {
-            showForm(new AppointmentSelection());
+            showForm(new AppointmentSelection(this));
+        }
+
+        private void DoctorDashboard_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        public void showCreatePrescription(int app)
+        {
+            showForm(new CreatePrescription(app));
         }
     }
 }

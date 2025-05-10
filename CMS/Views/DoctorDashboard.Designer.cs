@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,6 +47,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(192, 547);
             this.panel1.TabIndex = 0;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(3, 271);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(189, 63);
+            this.button3.TabIndex = 2;
+            this.button3.Text = "Prescription";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -76,16 +86,6 @@
             this.panel2.Size = new System.Drawing.Size(825, 547);
             this.panel2.TabIndex = 1;
             // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(3, 271);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(189, 63);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Prescription";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
             // DoctorDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -95,6 +95,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "DoctorDashboard";
             this.Text = "DoctorDashboard";
+            this.Load += new System.EventHandler(this.DoctorDashboard_Load);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
