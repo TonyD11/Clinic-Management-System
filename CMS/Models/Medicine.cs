@@ -14,13 +14,7 @@ namespace CMS.Models
         private string _instructions;
         private Prescription _prescription;
 
-        public Medicine(string name, string dosage, string instructions, Prescription prescription)
-        {
-            Name = name;
-            Dosage = dosage;
-            Instructions = instructions;
-            Prescription = prescription;
-        }
+        
 
         public int Id { get { return _id; } set { _id = value; } }
         public string Name { get { return _name; } set { _name = value; } }
@@ -28,5 +22,9 @@ namespace CMS.Models
         public string Instructions { get { return _instructions; } set { _instructions = value; } }
         public Prescription Prescription { get { return  _prescription; } set { _prescription = value; } }
 
+        public override string ToString()
+        {
+            return $"{Name} - {Dosage} - {Instructions}";
+        }
     }
 }

@@ -116,11 +116,12 @@
             // 
             // listBox1
             // 
+            this.listBox1.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
+            this.listBox1.ItemHeight = 23;
             this.listBox1.Location = new System.Drawing.Point(45, 178);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(712, 196);
+            this.listBox1.Size = new System.Drawing.Size(712, 188);
             this.listBox1.TabIndex = 46;
             // 
             // CreatePrescription
