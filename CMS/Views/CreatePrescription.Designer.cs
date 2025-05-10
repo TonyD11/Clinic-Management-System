@@ -113,6 +113,7 @@
             this.button2.TabIndex = 45;
             this.button2.Text = "Create Prescription";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // listBox1
             // 

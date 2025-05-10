@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CMS.Controller;
 using CMS.Models;
 
 namespace CMS.Views
@@ -49,6 +50,33 @@ namespace CMS.Views
             textBox1.Clear();
             textBox2.Clear();
             textBox3.Clear();
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (medicine.Count == 0)
+            {
+                MessageBox.Show("No medicines added.");
+                return;
+            }
+
+            int prescrtion_id = new PrescriptionController().AddPrescription(appointmentId);
+
+            foreach (var item in medicine)
+            {
+                var name = new Medicine {
+                    Name = item.Name,
+                    Dosage = item.Dosage,
+                    Instructions = item.Instructions,
+                };
+
+                new PrescriptionController().AddMedicine(prescrtion_id,name);
+            }
+
+            listBox1.Items.Clear();
+            this.Hide();
+
 
         }
     }
