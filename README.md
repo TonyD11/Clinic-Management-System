@@ -42,5 +42,21 @@ CREATE TABLE appointment (
     FOREIGN KEY (schedule_id) REFERENCES doctor_schedule(id) 
 );
 
+CREATE TABLE prescription (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    appointment_id INT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (appointment_id) REFERENCES appointment(id)
+);
+
+CREATE TABLE medicine (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    prescription_id INT NOT NULL,
+    name varchar(255) NOT NULL,
+    dosage varchar(255) NOT NULL,
+    instruction varchar(255) NOT NULL,
+    FOREIGN KEY (prescription_id) REFERENCES prescription(id)
+);
+
 INSERT INTO users (name, password, age, gender, contact, type)
 VALUES ('Admin Name', 'admin123', 30, 'Male', '1234567890', 'admin');

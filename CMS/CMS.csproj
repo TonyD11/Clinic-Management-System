@@ -103,9 +103,12 @@
     <Compile Include="Controller\AuthController.cs" />
     <Compile Include="Controller\DoctorController.cs" />
     <Compile Include="Controller\PatientController.cs" />
+    <Compile Include="Controller\PrescriptionController.cs" />
     <Compile Include="Models\Appoitments.cs" />
     <Compile Include="Models\Doctor.cs" />
+    <Compile Include="Models\Medicine.cs" />
     <Compile Include="Models\Patient.cs" />
+    <Compile Include="Models\Prescription.cs" />
     <Compile Include="Models\Schedule.cs" />
     <Compile Include="Models\Speciality.cs" />
     <Compile Include="Models\TimeSlots.cs" />
@@ -122,6 +125,12 @@
     <Compile Include="Views\AdminDashboard.Designer.cs">
       <DependentUpon>AdminDashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\AppointmentSelection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AppointmentSelection.Designer.cs">
+      <DependentUpon>AppointmentSelection.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\CreateAppointment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +142,12 @@
     </Compile>
     <Compile Include="Views\CreateDoctors.Designer.cs">
       <DependentUpon>CreateDoctors.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CreatePrescription.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\CreatePrescription.Designer.cs">
+      <DependentUpon>CreatePrescription.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\DoctorAppoinments.cs">
       <SubType>Form</SubType>
@@ -190,11 +205,17 @@
     <EmbeddedResource Include="Views\AdminDashboard.resx">
       <DependentUpon>AdminDashboard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\AppointmentSelection.resx">
+      <DependentUpon>AppointmentSelection.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\CreateAppointment.resx">
       <DependentUpon>CreateAppointment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\CreateDoctors.resx">
       <DependentUpon>CreateDoctors.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CreatePrescription.resx">
+      <DependentUpon>CreatePrescription.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\DoctorAppoinments.resx">
       <DependentUpon>DoctorAppoinments.cs</DependentUpon>
