@@ -40,5 +40,10 @@ namespace CMS.Views
         {
             showForm(new DoctorAppoinments());
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            showForm(new AppointmentSelection());
+        }
     }
 }
