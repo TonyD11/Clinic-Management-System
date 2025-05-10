@@ -52,10 +52,11 @@ CREATE TABLE prescription (
 CREATE TABLE medicine (
     id INT AUTO_INCREMENT PRIMARY KEY,
     prescription_id INT NOT NULL,
-    details TEXT NOT NULL,
+    name varchar(255) NOT NULL,
+    dosage varchar(255) NOT NULL,
+    instruction varchar(255) NOT NULL,
     FOREIGN KEY (prescription_id) REFERENCES prescription(id)
 );
-
 
 INSERT INTO users (name, password, age, gender, contact, type)
 VALUES ('Admin Name', 'admin123', 30, 'Male', '1234567890', 'admin');
