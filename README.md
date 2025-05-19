@@ -10,7 +10,7 @@ CREATE TABLE users (
     gender ENUM('Male', 'Female', 'Other'),
     contact VARCHAR(15),
     type ENUM('doctor', 'patient', 'admin') NOT NULL,
-    availability` tinyint(1) NOT NULL DEFAULT 1
+    availability tinyint(1) NOT NULL DEFAULT 1
 );
 
 CREATE TABLE doctor_specialties (
@@ -23,7 +23,7 @@ CREATE TABLE doctor_specialties (
 CREATE TABLE doctor_schedule (
     id INT AUTO_INCREMENT PRIMARY KEY,
     doctor_id INT,
-    day_of_week VARCHAR(10),   -- e.g., 'Monday'
+    day_of_week VARCHAR(10),
     start_time TIME,
     end_time TIME,
     no_of_patient INT,
